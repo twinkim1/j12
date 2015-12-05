@@ -1,0 +1,47 @@
+package com.j2.iterator.dinermerger.after;
+
+public class Waitress { 
+    PancakeHouseMenu pancakeHouseMenu; 
+    DinerMenu dinerMenu; 
+   
+    public Waitress(PancakeHouseMenu pancakeHouseMenu, DinerMenu dinerMenu) { 
+        this.pancakeHouseMenu = pancakeHouseMenu; 
+        this.dinerMenu = dinerMenu; 
+    } 
+    public void printMenu() { 
+        Iterator pancakeIterator = pancakeHouseMenu.createIterator(); 
+        Iterator dinerIterator = dinerMenu.createIterator(); 
+        System.out.println("       MENU    \n    아침     "); 
+        printMenu(pancakeIterator); 
+        System.out.println("\n   점심       "); 
+        printMenu(dinerIterator); 
+    }
+    private void printMenu(Iterator iterator) { 
+        while (iterator.hasNext()) { 
+        	MenuItem menuItem = (MenuItem)iterator.next(); 
+            System.out.print(menuItem.getName() + ", $"); 
+            System.out.print(menuItem.getPrice() + " __ "); 
+            System.out.println(menuItem.getDescription()); 
+        } 
+    } 
+    public void vegetarianprintMenu() { 
+    	Iterator pancakeIterator = pancakeHouseMenu.createIterator(); 
+    	Iterator dinerIterator = dinerMenu.createIterator(); 
+        System.out.println ("     Vegetarian  MENU    \n   Vegetarian 아침     ");
+    	vegetarianprintMenu(pancakeIterator); 
+        System.out.println("\n   Vegetarian 점심 "); 
+    	vegetarianprintMenu(dinerIterator); 
+    	    } 
+    private void vegetarianprintMenu(Iterator iterator) { 
+    	    while (iterator.hasNext()) { 
+    	    MenuItem menuItem = (MenuItem)iterator.next(); 
+    	    if(menuItem.vegetarian){ 
+    	    System.out.print(menuItem.getName() + ",$ "); 
+    	    System.out.print(menuItem.getPrice() + " __"); 
+    	    System.out.println(menuItem.getDescription()); 
+    	            } 
+    	        } 
+
+    	    } 
+
+    	} 
